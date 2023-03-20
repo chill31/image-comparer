@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Comparer | Chill31</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <fieldset>
+    <legend>Choose Files</legend>
+    <input type="file" data-first>
+    <input type="file" data-second>
+  </fieldset>
+
+  <button class="reset-btn">Reset</button>
+
+  <main>
+    <img src="/images/gradient1.png" alt="first image" class="img first-image">
+    <img src="/images/gradient2.png" alt="second image" class="img second-image">
+
+    <span class="divider">
+      <div class="circle">
+        <div class="left-triangle"></div>
+        <div class="right-triangle"></div>
+      </div>
+    </span>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
