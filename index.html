@@ -13,25 +13,48 @@
 
 <body>
 
-  <fieldset>
-    <legend>Choose Files</legend>
-    <input type="file" data-first>
-    <input type="file" data-second>
-  </fieldset>
-
-  <button class="reset-btn">Reset</button>
+  <header>
+    <h1 class="title">Image Comparer</h1>
+    <p class="brief">Upload two images from your device and drag around with the arrows to compare.<br><a href="#custom">Scroll down</a> a bit to compare your own images.</p>
+  </header>
 
   <main>
-    <img src="/images/gradient1.png" alt="first image" class="img first-image">
-    <img src="/images/gradient2.png" alt="second image" class="img second-image">
+    <h2 class="subtitle">Example</h2>
+    <section class="main">
+      <img src="/images/gradient1.png" alt="first image" class="img first-image">
+      <img src="/images/gradient2.png" alt="second image" class="img second-image">
 
-    <span class="divider">
-      <div class="circle">
-        <div class="left-triangle"></div>
-        <div class="right-triangle"></div>
-      </div>
-    </span>
+      <span class="divider">
+        <div class="circle">
+          <div class="left-triangle"></div>
+          <div class="right-triangle"></div>
+        </div>
+      </span>
+    </section>
   </main>
+
+  <section class="custom-section" id="custom">
+    <h2 class="subtitle">Upload Your Own</h2>
+    <div class="file-upload">
+      <div class="file-upload-select">
+        <div class="file-select-button" >Choose 2 files</div>
+        <div class="file-select-name">No files chosen...</div> 
+        <input type="file" multiple name="file-upload-input" id="file-upload-input">
+      </div>
+    </div>
+
+    <section class="user">
+      <img src="/images/gradient1.png" alt="first custom image" class="img first-custom-image">
+      <img src="/images/gradient2.png" alt="second custom image" class="img second-custom-image">
+
+      <span class="divider">
+        <div class="circle">
+          <div class="left-triangle"></div>
+          <div class="right-triangle"></div>
+        </div>
+      </span>
+    </section>
+  </section>
 
   <script src="script.js"></script>
 </body>
