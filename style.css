@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/font-manrope.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +10,8 @@
 }
 
 body {
-  background-color: rgb(182, 243, 255);
+  font-family: "Manrope";
+  background-color: rgb(255, 255, 255);
   min-height: 700px;
   height: fit-content;
   display: flex;
@@ -77,12 +83,20 @@ header {
   display: block;
 }
 
-.first-image, .first-custom-image {
+.first-hz-image {
   clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
 }
 
-.second-image, .second-custom-image {
+.second-hz-image {
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%)
+}
+
+.first-vt-image {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+.second-vt-image {
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
 }
 
 .divider {
@@ -99,7 +113,18 @@ header {
   z-index: 5;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
+}
+
+.vt-divider {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.vt-divider .circle {
+  transform: rotate(90deg);
+  cursor: ns-resize;
 }
 
 .circle {
@@ -136,7 +161,7 @@ header {
 
 /** USER SECTION STYLES */
 
-.custom-section {
+.horizontal, .vertical {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

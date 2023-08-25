@@ -16,39 +16,47 @@
 
   <header>
     <h1 class="title">Image Comparer</h1>
-    <p class="brief">Upload two images from your device and drag around with the arrows to compare.<br><a href="#custom">Scroll down</a> a bit to compare your own images.</p>
+    <p class="brief">Upload images from your device to compare them. Horizontal and Vertical mode supported.</p>
   </header>
 
-  <main>
-    <h2 class="subtitle">Example</h2>
-    <section class="main">
-      <img src="/images/gradient1.png" alt="first image" class="img first-image">
-      <img src="/images/gradient2.png" alt="second image" class="img second-image">
+  <section class="horizontal" id="horizontal-custom">
+    <h2 class="subtitle">Horizontal</h2>
+    <div class="file-upload">
+      <div class="horizontal-file-upload-select file-upload-select">
+        <div class="file-select-button" >Choose 2 files</div>
+        <div class="file-select-name">No files chosen...</div> 
+        <input type="file" multiple name="horizontal-file-upload-input" id="horizontal-file-upload-input">
+      </div>
+    </div>
 
-      <span class="divider">
+    <section class="hz-user user">
+      <img src="/images/gradient1.png" alt="first horizontal image" class="img first-hz-image">
+      <img src="/images/gradient2.png" alt="second horizontal image" class="img second-hz-image">
+
+      <span class="divider hz-divider">
         <div class="circle">
           <div class="left-triangle"></div>
           <div class="right-triangle"></div>
         </div>
       </span>
     </section>
-  </main>
+  </section>
 
-  <section class="custom-section" id="custom">
-    <h2 class="subtitle">Upload Your Own</h2>
+  <section class="vertical" id="vertical-custom">
+    <h2 class="subtitle">Vertical</h2>
     <div class="file-upload">
-      <div class="file-upload-select">
+      <div class="vertical-file-upload-select file-upload-select">
         <div class="file-select-button" >Choose 2 files</div>
         <div class="file-select-name">No files chosen...</div> 
-        <input type="file" multiple name="file-upload-input" id="file-upload-input">
+        <input type="file" multiple name="vertical-file-upload-input" id="vertical-file-upload-input">
       </div>
     </div>
 
-    <section class="user">
-      <img src="/images/gradient1.png" alt="first custom image" class="img first-custom-image">
-      <img src="/images/gradient2.png" alt="second custom image" class="img second-custom-image">
+    <section class="vt-user user">
+      <img src="/images/gradient1.png" alt="first vertical image" class="img first-vt-image">
+      <img src="/images/gradient2.png" alt="second vertical image" class="img second-vt-image">
 
-      <span class="divider">
+      <span class="divider vt-divider">
         <div class="circle">
           <div class="left-triangle"></div>
           <div class="right-triangle"></div>

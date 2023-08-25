@@ -1,129 +1,51 @@
-const firstImage = document.querySelector('.first-image');
-const secondImage = document.querySelector('.second-image');
-const divider = document.querySelector('.circle');
+/** HORIZONTAL USER SECTION */
 
-const main = document.querySelector(".main");
+const horizontalFirstImage = document.querySelector(".first-hz-image");
+const horizontalSecondImage = document.querySelector(".second-hz-image");
+const horizontalDivider = document.querySelector(".hz-divider .circle");
 
-let isDragging = false;
+const hzSection = document.querySelector(".hz-user");
 
-// Event listeners
-divider.addEventListener('pointerdown', () => {
-  isDragging = true;
-});
-document.addEventListener('pointerup', () => {
-  isDragging = false;
-});
-document.addEventListener('pointermove', (e) => {
+let isHorizontalDragging = false;
 
-  if (!isDragging) return;
-
-  const mouseX = e.clientX - main.offsetLeft;
-  const mainWidth = main.offsetWidth;
-  const percentage = (mouseX / mainWidth) * 100;
-
-  if (percentage <= 0 || percentage >= 100) return;
-
-  firstImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0% 100%)`;
-  secondImage.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
-  divider.parentElement.style.left = `${percentage}%`;
-
-});
-
-firstImage.addEventListener('dragstart', (e) => e.preventDefault());
-secondImage.addEventListener('dragstart', (e) => e.preventDefault());
-
-/** USER SECTION */
-
-const customFirstImage = document.querySelector(".first-custom-image");
-const customSecondImage = document.querySelector(".second-custom-image");
-const customDivider = document.querySelectorAll(".circle")[1]
-
-const section = document.querySelector(".user");
-
-let isCustomDragging = false;
-
-customDivider.addEventListener("pointerdown", () => {
-  isCustomDragging = true;
+horizontalDivider.addEventListener("pointerdown", () => {
+  isHorizontalDragging = true;
 });
 document.addEventListener("pointerup", () => {
-  isCustomDragging = false;
+  isHorizontalDragging = false;
 });
 document.addEventListener("pointermove", (e) => {
 
-  if (!isCustomDragging) return;
+  if (!isHorizontalDragging) return;
 
-  const mouseX = e.clientX - section.offsetLeft;
-  const mainWidth = section.offsetWidth;
+  const mouseX = e.clientX - hzSection.offsetLeft;
+  const mainWidth = hzSection.offsetWidth;
   const percentage = (mouseX / mainWidth) * 100;
 
   if (percentage <= 0 || percentage >= 100) return;
 
-  customFirstImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0% 100%)`;
-  customSecondImage.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
-  customDivider.parentElement.style.left = `${percentage}%`;
+  horizontalFirstImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0% 100%)`;
+  horizontalSecondImage.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
+  horizontalDivider.parentElement.style.left = `${percentage}%`;
 
 });
 
-customFirstImage.addEventListener('dragstart', (e) => e.preventDefault());
-customSecondImage.addEventListener('dragstart', (e) => e.preventDefault());
-
-// const firstFileInput = document.querySelector("[data-first]");
-// const secondFileInput = document.querySelector("[data-second]");
-
-// firstFileInput.addEventListener('change', (event) => {
-//   const files = event.target.files;
-//   for (let i = 0; i < files.length; i++) {
-//     const fileName = files[i].name.toLowerCase();
-//     const isImage = /\.(png|jpe?g|webp|svg)$/.test(fileName);
-//     if (!isImage) {
-//       alert("File format is not valid. Please input either png, jpg, jpeg, webp or svg.");
-//       continue;
-//     }
-//     const reader = new FileReader();
-//     reader.readAsDataURL(files[i]);
-//     reader.onload = (event) => {
-//       const dataURL = event.target.result;
-//       firstImage.src = dataURL;
-//     };
-//   }
-// });
-
-// secondFileInput.addEventListener('change', (event) => {
-//   const files = event.target.files;
-//   for (let i = 0; i < files.length; i++) {
-//     const fileName = files[i].name.toLowerCase();
-//     const isImage = /\.(png|jpe?g|webp|svg)$/.test(fileName);
-//     if (!isImage) {
-//       alert("File format is not valid. Please input either png, jpg, jpeg, webp or svg.");
-//       continue;
-//     }
-//     const reader = new FileReader();
-//     reader.readAsDataURL(files[i]);
-//     reader.onload = (event) => {
-//       const dataURL = event.target.result;
-//       secondImage.src = dataURL;
-//     };
-//   }
-// });
-
-// const resetBtn = document.querySelector(".reset-btn");
-// resetBtn.addEventListener("click", () => {
-//   firstImage.src = '/images/gradient1.png';
-//   secondImage.src = '/images/gradient2.png';
-// })
+horizontalFirstImage.addEventListener('dragstart', (e) => e.preventDefault());
+horizontalSecondImage.addEventListener('dragstart', (e) => e.preventDefault());
 
 /** FILE INPUTS */
 
-let fileInput = document.getElementById("file-upload-input");
-let fileSelect = document.querySelector(".file-upload-select");
+let horizontalFileInput = document.getElementById("horizontal-file-upload-input");
+let horizontalFileSelect = document.querySelector(".horizontal-file-upload-select");
 
-fileSelect.addEventListener("click", () => {
-  fileInput.click();
+
+horizontalFileSelect.addEventListener("click", () => {
+  horizontalFileInput.click();
 });
 
 let srcs = [];
-fileInput.addEventListener("change", () => {
-  let fileNames = fileInput.files;
+horizontalFileInput.addEventListener("change", () => {
+  let fileNames = horizontalFileInput.files;
   let selectName = document.querySelector(".file-select-name");
 
   selectName.textContent = '';
@@ -148,9 +70,98 @@ fileInput.addEventListener("change", () => {
       const dataURL = event.target.result;
 
       if(i === 0) {
-        customFirstImage.src = dataURL;
+        horizontalFirstImage.src = dataURL;
       } else {
-        customSecondImage.src = dataURL;
+        horizontalSecondImage.src = dataURL;
+      }
+    });
+  }
+  selectName.textContent = names.join(", ");
+});
+
+
+
+/** VERTICAL USER SECTION */
+
+
+
+const verticalFirstImage = document.querySelector(".first-vt-image");
+const verticalSecondImage = document.querySelector(".second-vt-image");
+const verticalDivider = document.querySelector(".vt-divider .circle");
+
+const vtSection = document.querySelector(".vt-user");
+
+let isVerticalDragging = false;
+
+verticalDivider.addEventListener("pointerdown", () => {
+  isVerticalDragging = true;
+  console.log('verticalDivider is pointerdown')
+});
+document.addEventListener("pointerup", () => {
+  isVerticalDragging = false;
+  console.log('verticalDivider is destroyed')
+});
+
+document.addEventListener("pointermove", (e) => {
+
+  if (!isVerticalDragging) return;
+  const rect = vtSection.getBoundingClientRect();
+  const mouseY = e.clientY - rect.top;
+  
+  const percentage = (mouseY / rect.height) * 100;
+
+  console.log(percentage);
+  if (percentage <= 0 || percentage >= 100) return;
+
+  verticalFirstImage.style.clipPath = `polygon(0 0, 100% 0, 100% ${percentage}%, 0 ${percentage}%)`;
+  verticalSecondImage.style.clipPath = `polygon(0 ${percentage}%, 100% ${percentage}%, 100% 100%, 0 100%)`;
+  verticalDivider.parentElement.style.top = `${percentage - 50}%`;
+
+});
+
+verticalFirstImage.addEventListener('dragstart', (e) => e.preventDefault());
+verticalSecondImage.addEventListener('dragstart', (e) => e.preventDefault());
+
+/** FILE INPUTS */
+
+let verticalFileInput = document.getElementById("vertical-file-upload-input");
+let verticalFileSelect = document.querySelector(".vertical-file-upload-select");
+
+
+verticalFileSelect.addEventListener("click", () => {
+  verticalFileInput.click();
+});
+
+let vt_srcs = [];
+verticalFileInput.addEventListener("change", () => {
+  let fileNames = verticalFileInput.files;
+  let selectName = document.querySelector(".vertical-file-upload-select .file-select-name");
+
+  selectName.textContent = '';
+  if (fileNames.length < 2 || fileNames.length > 2) return alert("Please choose 2 images");
+
+  let names = [];
+
+  for (let i = 0; i < 2; i++) {
+    const fileName = fileNames[i].name.toLowerCase();
+    const isImage = /\.(png|jpe?g|webp|svg)$/.test(fileName);
+
+    if (!isImage) {
+      alert(`${i === 0 ? 'First' : 'Second'} file's format is not valid. Please input either png, jpg, jpeg, webp or svg.`);
+      continue;
+    }
+
+    names.push(fileName);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(fileNames[i]);
+    reader.addEventListener("load", (event) => {
+      const dataURL = event.target.result;
+
+      if(i === 0) {
+        verticalFirstImage.src = dataURL;
+      } else {
+        verticalSecondImage.src = dataURL;
       }
     });
   }
