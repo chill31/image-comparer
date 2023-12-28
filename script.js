@@ -167,3 +167,27 @@ verticalFileInput.addEventListener("change", () => {
   }
   selectName.textContent = names.join(", ");
 });
+
+/** PICTURE MODE CODE */
+
+const hzPictureModeCheckbox = document.getElementById("hz-picture-mode-checkbox");
+const vtPictureModeCheckbox = document.getElementById("vt-picture-mode-checkbox");
+
+const hzDivider = document.querySelector(".hz-divider");
+const vtDivider = document.querySelector(".vt-divider");
+
+hzPictureModeCheckbox.addEventListener("input", (e) => {
+  if(e.target.checked) {
+    hzDivider.classList.add("hide");
+  } else {
+    hzDivider.classList.remove("hide");
+  }
+});
+
+vtPictureModeCheckbox.addEventListener("input", (e) => {
+  if(e.target.checked) {
+    vtDivider.classList.add("hide");
+  } else {
+    vtDivider.classList.remove("hide");
+  }
+});
